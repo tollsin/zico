@@ -6,5 +6,5 @@ import lombok.Data;
 public class Menu {
 
 	private int menuno;
-	private String category,mnate,minfo,imgname,imgpath,size;
+	private String category,mnate,minfo,imgname,imgpath,msize;
 }
