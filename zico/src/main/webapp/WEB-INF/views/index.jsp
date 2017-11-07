@@ -13,6 +13,7 @@
           <img src="/resources/images/main-top-coffee.jpg" alt="">
           <div class="bann_capt ">
             <div class="maxheight">
+              <br>
               <img src="/resources/images/main-coffee.png" alt="">
               <div class="bann_title">Coffee</div>
               <a href="#">more</a>
@@ -26,7 +27,8 @@
 		  <div class="gall_block">
           <div class="bann_capt  bn__1">
             <div class="maxheight">
-              <img src="/resources/images/icon2.png" alt="">
+              <br>
+              <img src="/resources/images/main-dessert.png" alt="">
               <div class="bann_title">Desert</div>
               <a href="#">more</a>
             </div>
@@ -38,10 +40,11 @@
       <div class="grid_4">
         <div class="banner ">
 		  <div class="gall_block">
-          <img src="/resources/images/page1_img3.jpg" alt="">
+          <img src="/resources/images/main-top-store.jpg" alt="">
           <div class="bann_capt  bn__2">
             <div class="maxheight">
-              <img src="/resources/images/icon3.png" alt="">
+              <br>
+              <img src="/resources/images/main-store.png" alt="">
               <div class="bann_title">store</div>
               <a href="#">more</a>
             </div>
