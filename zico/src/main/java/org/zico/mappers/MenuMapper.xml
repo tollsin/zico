@@ -4,9 +4,24 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="org.zico.mappers.MenuMapper">
+  
   <insert id="create">
-  insert into tb_menu (category,mname,minfo,imgname,imgpath,msize)
-  values(#{category},#{mname},{minfo},{imgname},{imgpath},{m_size})
+  insert into tb_menu (menuno,category,mname,minfo,imgname,imgpath,msize,mprice)
+  values(#{menuno},#{category},#{mname},#{minfo},#{imgname},#{imgpath},#{msize},#{mprice})
   </insert>
+  
+  <select id="read" resultType="Menu">  
+  	select * from tb_menu where menuno = #{menuno}
+  </select>
+  
+  <delete id="delete">
+  delete from tb_menu where menuno = #{menuno}
+  </delete>
+  <update id="update">
+  update tb_menu 
+     set  category=#{category},mname=#{mname},minfo=#{minfo},imgname=#{imgname},imgpath=#{imgpath},m_size=#{msize} 
+   where  menuno=#{menuno}           
+  </update>
+  
   
   </mapper>

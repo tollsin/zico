@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class Menu {
 
-	private int menuno;
-	private String category,mnate,minfo,imgname,imgpath,msize;
+	private int menuno,mprice;
+	private String category,mname,minfo,imgname,imgpath,msize;
 }
