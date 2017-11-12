@@ -16,17 +16,22 @@
 			value="${menu.mname}" readonly="readonly">
 	</div>
 	<div>
-		<label>메뉴종류</label> <input type="text" name="minfo"
+		<label>설명</label> <input type="text" name="minfo"
 			value="${menu.minfo}" readonly="readonly">
 	</div>
 	<div>
-		<label>이미지 경로</label> <input type="text" name="imgpath"
-			value="${menu.imgpath}" readonly="readonly">
+		<label>이미지</label> <img src="display?name=s_${menu.imgname}">
 	</div>
 	<div>
 		<label>가격</label> <input type="text" name="mprice"
 			value="${menu.mprice}" readonly="readonly">
 	</div>
+	
+
+	
+	
+	
+	
 
 	<button type="button" class="btn btn-default modBtn">수정</button>
 	<button type="button" class="btn deleteBtn">삭제</button>
@@ -42,6 +47,12 @@
 		<input type="hidden" name="menuno" value="${menu.menuno}"> 
 	
 	</form>
+	<form id="actionForm2" action="/menu/update" method="get">
+		<input type="hidden" name="menuno" value="${menu.menuno}"> 
+		<input type="hidden" name="page" value="${cri.page}"> 
+		<input type="hidden" name="size" value="${cri.size}">
+	</form>
+	
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
 		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 		crossorigin="anonymous"></script>
@@ -51,6 +62,7 @@
 
 			var actionForm = $("#actionForm");
 			var actionForm1 = $("#actionForm1");
+			var actionForm2 = $("#actionForm2");
 
 			$(".deleteBtn").click(function() {
 				actionForm1.submit();
@@ -59,7 +71,13 @@
 			$(".listBtn").click(function() {
 				actionForm.submit();
 			})
+			
+			$(".modBtn").click(function() {
+				actionForm2.submit();
+			})
 		});
+		
 	</script>
+	
 </body>
 </html>

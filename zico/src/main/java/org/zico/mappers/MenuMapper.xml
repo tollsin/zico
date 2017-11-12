@@ -19,9 +19,11 @@
   </delete>
   <update id="update">
   update tb_menu 
-     set  category=#{category},mname=#{mname},minfo=#{minfo},imgname=#{imgname},imgpath=#{imgpath},m_size=#{msize} 
+     set  category=#{category},mname=#{mname},minfo=#{minfo},imgname=#{imgname},imgpath=#{imgpath},msize=#{msize} 
    where  menuno=#{menuno}           
   </update>
+  
+ 
   
   
   </mapper>

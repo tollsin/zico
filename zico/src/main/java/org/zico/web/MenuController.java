@@ -13,9 +13,6 @@ import javax.imageio.ImageIO;
 
 import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -44,76 +41,67 @@ public class MenuController {
 	@GetMapping("/insert")
 	public void getinsert(Criteria cri) {}
 	
-	//파일 업로드
+	
 	@PostMapping("/insert")
-	public String insert(Menu menu,Criteria cri, RedirectAttributes rttr,MultipartFile file,Model model) {
-		 String uuid = UUID.randomUUID().toString();
-	      
-	      String uploadName =  uuid + "_" + file.getOriginalFilename();
-
-	      model.addAttribute("uploadName", uploadName);
-
-	      try {
-	         OutputStream out = new FileOutputStream("C:\\zzz\\" + uploadName);
-	         FileCopyUtils.copy(file.getInputStream(), out);
-
-	         if (file.getContentType().startsWith("image") == true) {
-	            model.addAttribute("isImage", file.getContentType().startsWith("image"));
-	            makeThumbnail(uploadName);
-	            // thumbnail image
-	         }
-
-	      } catch (Exception e) {
-	         log.warning(e.getMessage());
-	      }
-
-		menu.setImgpath(thumbnailName);
+	public String insert(Menu menu,Criteria cri, RedirectAttributes rttr,MultipartFile f1,Model model) {
+		String uuid = UUID.randomUUID().toString();
+		String uploadName = uuid + "_" + f1.getOriginalFilename();
+		model.addAttribute("uploadName", uploadName);
+		try {
+			OutputStream out = new FileOutputStream("c:\\zzz\\" + uploadName);
+			FileCopyUtils.copy(f1.getInputStream(), out);
+			
+			
+			if(f1.getContentType().startsWith("image")) {
+				model.addAttribute("isImage", f1.getContentType().startsWith("image"));
+				makeThumbnail(uploadName);
+			}
+			
+			
+		} catch(Exception e) {
+			log.warning(e.getMessage());
+		}
+		menu.setImgpath("암거나 들어와라 ");
 		menu.setImgname(uploadName);
 		service.insert(menu);
 		rttr.addFlashAttribute("result","success");	// 일회성 parameter
 		rttr.addFlashAttribute("criteria",cri);	// 일회성 parameter
+		
 		return "redirect:/menu/coffeelist";	
 	}
-	 BufferedImage sourceImg;
-	   BufferedImage destImg;
-	   String thumbnailName;
-	   private String makeThumbnail(String fileName) throws Exception {
-
-	      sourceImg = ImageIO.read(new File("C:\\zzz", fileName));
-
-	      destImg = Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 300);
-
-	      thumbnailName = "c:\\zzz" + File.separator +"s_"+ fileName;
-
-	      File newFile = new File(thumbnailName);
-	      String formatName = fileName.substring(fileName.lastIndexOf(".") + 1);
-	      ImageIO.write(destImg, formatName.toUpperCase(), newFile);
-	      log.info(thumbnailName);
-	      return thumbnailName;
-	   }
-
-	   @GetMapping(value="/display", produces="image/jpeg")	// produces : 설정한 type으로 보냄
-		@ResponseBody
-		public byte[] display(String name) {
+	
+	private String makeThumbnail(String fileName) throws Exception{	          
+		BufferedImage sourceImg = ImageIO.read(new File("c:\\zzz\\", fileName));
+		BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT,300);
+																				// 이미지가 깨지지 않도록 height 100으로 설정
 		
-			try {
-				FileInputStream in = new FileInputStream("c:\\zzz\\" + name);
-				ByteArrayOutputStream bas = new ByteArrayOutputStream();
-				FileCopyUtils.copy(in, bas);
-				
-				return bas.toByteArray();
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-			return null;
+		String thumbnailName = "c:\\zzz\\" + File.separator +"s_"+ fileName;
+		  
+		File newFile = new File(thumbnailName);
+		String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
+		  
+		ImageIO.write(destImg, formatName.toUpperCase(), newFile);
+		log.info(thumbnailName);
+		return thumbnailName;
+	}
+	@GetMapping(value="/display",produces="image/jpeg")
+	@ResponseBody
+	public byte[] display(String name) {
+		try {
+			FileInputStream in =new FileInputStream("c:\\zzz\\"+name);
+			ByteArrayOutputStream bas=new ByteArrayOutputStream();
+			FileCopyUtils.copy(in, bas);
+			return bas.toByteArray();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-	   
-	   
+		return null;
+	}
+	
 	   
 	@GetMapping("/coffeelist")
-	public void coffeelist(Criteria cri,Model model) {
+	public void coffeelist(Criteria cri,Model model,MultipartFile file) {
+		
 		model.addAttribute("list",service.coffeelist(cri));
 		model.addAttribute("total",service.getcoffeeListCount(cri));
 	}
@@ -134,5 +122,43 @@ public class MenuController {
 		service.delete(menuno);
 		return "redirect:/menu/coffeelist";	
 	}
+	
+	@GetMapping("/update")
+	public void update(@RequestParam(name="menuno")int menuno,@ModelAttribute("cri") Criteria cri, Model model) {
+		model.addAttribute("menu",service.read(menuno));
+	}
+	@PostMapping("/update")
+	public String updatepost(Menu menu,Criteria cri, RedirectAttributes rttr,MultipartFile f1,Model model) {
+		String uuid = UUID.randomUUID().toString();
+		String uploadName = uuid + "_" + f1.getOriginalFilename();
+		model.addAttribute("uploadName", uploadName);
+		try {
+			OutputStream out = new FileOutputStream("c:\\zzz\\" + uploadName);
+			FileCopyUtils.copy(f1.getInputStream(), out);
+			
+			
+			if(f1.getContentType().startsWith("image")) {
+				model.addAttribute("isImage", f1.getContentType().startsWith("image"));
+				makeThumbnail(uploadName);
+			}
+			
+			
+		} catch(Exception e) {
+			log.warning(e.getMessage());
+		}
+		menu.setImgpath("암거나 들어와라 ");
+		menu.setImgname(uploadName);
+		service.update(menu);
+		return "redirect:/menu/detail?menuno="+menu.getMenuno();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
