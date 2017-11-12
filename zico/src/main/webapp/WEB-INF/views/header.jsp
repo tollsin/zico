@@ -21,6 +21,7 @@
 <script src="/resources/js/tmStickUp.js"></script>
 <script src="/resources/js/jquery.ui.totop.js"></script>
 <script src="/resources/js/touchTouch.jquery.js"></script>
+<script src="/resources/js/order.js"></script>
 
 <script>
  $(document).ready(function(){
