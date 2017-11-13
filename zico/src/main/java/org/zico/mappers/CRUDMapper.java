@@ -5,5 +5,4 @@ public interface CRUDMapper<E, K> {
 	public E read(K key);
 	public void update(E vo);
 	public void delete(K key);
-
 }

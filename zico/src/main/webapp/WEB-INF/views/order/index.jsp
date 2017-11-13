@@ -1,29 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
-<head>
-<title>Home</title>
-<meta charset="utf-8">
-<meta name="format-detection" content="telephone=no" />
-<link rel="icon" href="/resources/images/favicon.ico">
-<link rel="shortcut icon" href="/resources/images/favicon.ico" />
-<link rel="stylesheet" href="/resources/css/stuck.css">
-<link rel="stylesheet" href="/resources/css/style.css">
-<link rel="stylesheet" href="/resources/css/touchTouch.css">
-<script src="/resources/js/jquery.js"></script>
-<script src="/resources/js/jquery-migrate-1.1.1.js"></script>
-<script src="/resources/js/script.js"></script>
-<script src="/resources/js/superfish.js"></script>
-<script src="/resources/js/jquery.equalheights.js"></script>
-<script src="/resources/js/jquery.mobilemenu.js"></script>
-<script src="/resources/js/jquery.easing.1.3.js"></script>
-<script src="/resources/js/tmStickUp.js"></script>
-<script src="/resources/js/jquery.ui.totop.js"></script>
-<script src="/resources/js/touchTouch.jquery.js"></script>
-
+<%@ include file="../header.jsp" %>
 <style>
-
+	select {
+	font: inherit;
+    width: 70px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    color: #555555;
+    border: 1px solid white;
+    border-radius: 3px;
+	}
 	.button {
 		background-color: #e7e7e7;
 		color: black; /* Green */
@@ -36,13 +24,12 @@
 		display: inline-block;
 		font-size: 16px;
 	}
-	
+	.order {
+		padding: 5%;
+	}
 	.button:hover {
 		background-color: #555555; /* Green */
 		color: white;
-	}
-	.store {
-		background
 	}
 	tr td{
 		width:30%;
@@ -56,6 +43,9 @@
 	table {
 	    width:100%
 	}
+	tbody {
+		height:50px;
+	}
 	.button:hover {
 	    background-color: #555555; /* Green */
 	    color: white;
@@ -63,65 +53,22 @@
 	.store {
 	    margin: 3% auto;
 	}
-	td{
+	td {
 	    padding: 5%;
 	}
+	.tot {
+		float:right;
+		font-size:20px;
+		padding-right: 3%;
+		padding-bottom: 80%;
+	}
+	.store{
+		float:left;
+		font-size:20px;
+		padding-left: 3%;
+	}
 </style>
-<script>
- $(document).ready(function(){
 
-  $().UItoTop({ easingType: 'easeOutQuart' });
-  $('#stuck_container').tmStickUp({});
-  $('.gallery .gall_item').touchTouch();
-
-  }); 
-</script>
-<!--[if lt IE 9]>
- <div style=' clear: both; text-align:center; position: relative;'>
-   <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-     <img src="http://storage.ie6countdown.com/assets/100//resources/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
-   </a>
-</div>
-<script src="/resources/js/html5shiv.js"></script>
-<link rel="stylesheet" media="screen" href="/resources/css/ie.css">
-
-
-<![endif]-->
-</head>
-
-<body class="page1" id="top">
-	<!--==============================
-              header
-=================================-->
-	<header> <!--==============================
-            Stuck menu
-=================================--> <section id="stuck_container">
-	<div class="container">
-		<div class="row">
-			<div class="grid_12">
-				<h1>
-					<a href="index.html"> <img src="/resources/images/logo.png"
-						alt="Logo alt">
-					</a>
-				</h1>
-				<div class="navigation">
-					<nav>
-					<ul class="sf-menu">
-						<li class="current"><a href="index.html">home</a></li>
-						<li><a href="index-1.html">menu</a></li>
-						<li><a href="index-2.html">store</a></li>
-						<li><a href="index-3.html">order</a></li>
-					</ul>
-					</nav>
-					<div class="clear"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</section> </header>
-	<!--=====================
-          Content
-======================-->
 	<section class="content">
 	<div class="ic">More Website Templates @ TemplateMonster.com -
 		July 30, 2014!</div>
@@ -134,7 +81,7 @@
 				<br>
 				<br>
 				<form id="orderform" method="post" action="/order/pay">
-					<div class="order" style="background-color: skyblue; padding: 10%;">
+					<div class="order" >
 						<table>
 							<thead>
 								<tr>
@@ -146,11 +93,25 @@
 							<tbody>									
 							</tbody>
 						</table>
-						<span>합계 : </span><span class="totprice"></span>
+						<br>
+						<br>
+						<div style="font-size:20px;"class="time">
+						예약시간 <span class="hour"></span>시<select class="minute"></select>분
+						</div>
+						<div class="store">
+						<span>매장명: </span><span></span>
+						</div>
+						<div class="tot">
+						<br>
+						<span >합계 : </span><span class="totprice"></span>
+						</div>
 					</div>
 					<br><br>
-					<input class="button check" type="button" value="check">&emsp;&emsp; 
+					<div style="margin: 0 auto;">
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input class="button check" type="button" value="check">&emsp;&emsp;
 					<input class="button cancel" type="button" value="cancel">
+					<input class="restime" type="hidden" value="">
+					</div>
 					<br>
 					<br>
 				</form>
@@ -158,32 +119,7 @@
 		</div>
 	</div>
 	</section>
-<!--==============================
-              footer
-=================================-->
-	<footer id="footer">
-	<div class="container">
-		<div class="row">
-			<div class="grid_12">
-				<div class="socials">
-					<a href="#" class="fa fa-twitter"></a> <a href="#"
-						class="fa fa-facebook"></a> <a href="#" class="fa fa-google-plus"></a>
-					<a href="#" class="fa fa-pinterest"></a>
-				</div>
-				<div class="copyright">
-					<span class="brand">Bliss </span> &copy; <span id="copyright-year"></span>
-					| <a href="#">Privacy Policy</a>
-					<div>
-						Website designed by <a href="http://www.templatemonster.com/"
-							rel="nofollow">TemplateMonster.com</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</footer>
 
-	
 	<script>
 		$(document).ready(function(){
 			var order = '${order}'.split("!");	
@@ -218,7 +154,26 @@
 				}
 			}
 			totprice();
+			$(".time .hour").html(timeHour);
+			$(".time .minute").html(timeMinute);
 		});
+		
+		function timeHour(){
+			str="<select>";
+			for(var i=7; i<22; i++){
+				str += "<option value='"+i+"''>"+i+"</option>";
+			}
+			str += "</select>";
+			return str;
+		}
+		function timeMinute(){
+			str="<select>";
+			for(var i=0; i<60; i+=5){
+				str += "<option value='"+i+"''>"+i+"</option>";
+			}
+			str += "</select>";
+			return str;
+		}
 		
 		function count(menu,count){
 			str = "";
@@ -243,6 +198,24 @@
 			console.log(e);
 		    e.preventDefault();
 		});
+		
+		
+		$(".time").change(function(e){
+			console.log("시간선택")
+			var hour = document.getElementsByClassName("hour")
+			var minute = document.getElementsByClassName("minute")
+			var d = new Date();
+//			document.write('현재 년: ' + d.getFullYear() + '<br />');
+//			document.write('현재 월: ' + (d.getMonth() + 1) + '<br />');
+//			document.write('현재 일: ' + d.getDate() + '<br />');
+			if($(".hour option:selected").text() <= d.getHours() && $(".minute option:selected").text() <= d.getMinutes()){
+				e.preventDefault();
+				alert("현재 시간 이후로 주문해주세요 \n 현재시간 : "+d.getHours()+" 시 "+d.getMinutes()+" 분");
+			}
+				tim = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate() + " " + d.getHours() + ":" + $(".hour option:selected").text() + ":" + $(".minute option:selected").text();
+
+				$(".restime").val(tim)
+			});
 		
 		// 삭제 클릭시 엘리먼트삭제+쿠키삭제
 		$("tbody").on("click","span",function(){
@@ -269,7 +242,6 @@
 	        		  expireDate.setDate( expireDate.getDate() - 1 );
 	        		  document.cookie = "order" + "= " + "; expires=" + expireDate.toGMTString() ;
 	        	}
-	        	
 	        }
 	        $(this).parents("tr").remove();
 		});
@@ -310,10 +282,11 @@
 		    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");		   
 		}
 		function totprice(){
-			var order = '${order}'.split("!");
+			var cookie = document.cookie;
+			var order = cookie.split("!");
 			var tot = 0;
 			for(var i=0; i<order.length; i++){
-				if(order[i].indexOf("coffee") == 0 || order[i].indexOf("dessert") == 0){
+				if(order[i].indexOf("coffee") != -1 || order[i].indexOf("dessert") != -1){
 					var menu = order[i].split("_");
 					tot += menu[2]*menu[3];
 				}
@@ -322,6 +295,6 @@
 			console.log("tot2")
 		}
 	</script>
-</body>
-</html>
+<%@ include file="../footer.jsp" %>
+
 

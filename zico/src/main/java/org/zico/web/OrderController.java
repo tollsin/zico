@@ -1,13 +1,23 @@
 package org.zico.web;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import javax.servlet.http.Cookie;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+import org.zico.domain.TOrder;
+import org.zico.domain.TOrderdetail;
+import org.zico.service.OrderService;
 
 import lombok.extern.java.Log;
 
@@ -16,12 +26,11 @@ import lombok.extern.java.Log;
 @RequestMapping("/order/*")
 public class OrderController {
 	
+	@Autowired
+	OrderService service;
+	
 	@GetMapping("/index")
-	public void main() {
-		log.info("dd");
-	}
-	@PostMapping("/index")
-	public void dain(@CookieValue(name="order",required=false)Cookie cookie, Model mm) {
+	public void main(@CookieValue(name="order",required=false)Cookie cookie, Model mm) {
 		log.info("aa");
 		if(cookie != null) {
 			log.info("쿠키 있다!");
@@ -32,6 +41,7 @@ public class OrderController {
 			log.info("쿠키 없다!");
 		}
 	}
+
 	
 	@GetMapping("/test")
 	public void test() {
@@ -42,8 +52,32 @@ public class OrderController {
 	}
 	
 	@PostMapping("/pay")
-	public void payProcess(@CookieValue(name="order",required=false)Cookie cookie) {
-		log.info(cookie.getValue());
+	public String payProcess(@CookieValue(name="order",required=false)Cookie cookie) {
+		TOrder o = new TOrder();
+		o.setSno(11);
+		o.setUid("jaeik");
+		TOrderdetail vo = new TOrderdetail();
+		String [] or = cookie.getValue().split("!");
+		List<TOrderdetail> tor = new ArrayList<TOrderdetail>();
+		for(int i=0; i < or.length; i++) {
+			TOrderdetail aa = new TOrderdetail();
+			String[] or1 = or[i].split("_");
+			aa.setCount(Integer.parseInt(or1[3]));
+			aa.setMenuno(or1[2]);
+			aa.setRestime(null);
+			tor.add(aa);
+		}
+		try {
+			service.insertOrder(tor, o);
+		} catch (Exception e) {
+			return "redirect:/order/index";
+		}
+		ModelAndView mav = new ModelAndView();
+		return "redirect:/";
+		/*mav.setViewName("redirect:/order/index");
+		mav.addObject("order", cookie);
+		return mav;*/
 	}
+	
 	
 }

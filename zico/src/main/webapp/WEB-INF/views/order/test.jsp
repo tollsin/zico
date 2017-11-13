@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
 <body>
-	<form action="/order/index" method="post">
+	<form action="/order/index">
 		<button>hihi</button>
 	</form>
 	<span id="ice4">아이스크림4</span><br>
@@ -12,6 +12,13 @@
 	<span id="ame3">아메리카노3</span><br>
 	<span id="hon1">허니브레드1</span><br>
 	<span id="hon19">허니브레드19</span><br>
+	<span id="hon19">카페라떼19</span><br>
+	<span id="hon7">딸기슬러시1</span><br>
+	<span id="hon2">케냐AA1</span><br>
+	<span id="hon3">콜드브루1</span><br>
+	<span id="hon4">바닐라라떼1</span><br>
+	<span id="hon5">치즈케이크1</span><br>
+	<span id="hon6">생크림케이크1</span><br>
 	
 	
 	
@@ -42,6 +49,24 @@
 	});
 	$("#hon19").on("click",function(){
 		setCookie("order","dessert","HoneyBread","4500","19");
+	});
+	$("#hon2").on("click",function(){
+		setCookie("order","dessert","Ho","4500","19");
+	});
+	$("#hon3").on("click",function(){
+		setCookie("order","dessert","Honey","4500","19");
+	});
+	$("#hon4").on("click",function(){
+		setCookie("order","dessert","HoneyBr","4500","19");
+	});
+	$("#hon5").on("click",function(){
+		setCookie("order","dessert","HoBread","4500","19");
+	});
+	$("#hon6").on("click",function(){
+		setCookie("order","dessert","Honead","4500","19");
+	});
+	$("#hon7").on("click",function(){
+		setCookie("order","dessert","Hoead","4500","19");
 	});
 	
 /*  	function setCookie(cname, cvalue){

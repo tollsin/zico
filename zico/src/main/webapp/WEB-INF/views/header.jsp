@@ -58,17 +58,17 @@
       <div class="row">
         <div class="grid_12">
         <h1>
-          <a href="index.html">
+          <a href="/index.jsp">
             <img src="/resources/images/logo.png" alt="Logo alt">
           </a>
         </h1>  
           <div class="navigation">
             <nav>
               <ul class="sf-menu">
-               <li class="current"><a href="index.html">home</a></li>
+               <li class="current"><a href="/index.jsp">home</a></li>
                <li><a href="index-1.html">menu</a></li>
-               <li><a href="index-2.html">store</a></li>
-               <li><a href="index-3.html">order</a></li>
+               <li><a href="">store</a></li>
+               <li><a href="/order/test.jsp">order</a></li>
              </ul>
             </nav>        
             <div class="clear"></div>
