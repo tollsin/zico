@@ -28,6 +28,7 @@
      
       </c:forEach>
       </div>
+      <button id="insertBtn">메뉴등록</button>
 	<ul class="pagination mypage"></ul>
   </div>
 </section>
@@ -46,6 +47,11 @@
   
 
 
+  
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
   
 	<script type="text/javascript">
 	$(document).ready(function(){
@@ -69,8 +75,8 @@
 	    }
 	 
 	 function makePage(param) {
-		    var last = Math.ceil(param.page / 5.0) * 5;
-		    var first = last - 4;
+		    var last = Math.ceil(param.page / 10.0) * 10;
+		    var first = last - 9;
 		    var prev = false, next = true;
 		    
 		    if (param.total <= last * param.size ) {
@@ -108,7 +114,6 @@
 	    console.log(pageResult);
 	
 	});
-	
 
 		/*
 		var wh=$(window).scrollTop()+$(window).height();

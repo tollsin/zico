@@ -1,51 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+<%@ include file="header.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<style type="text/css">
-
-</style>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<!--=====================
+          Content
+======================-->
 <a href="/menu/dessertlist">디저트</a>
 <a href="/menu/coffeelist">커피</a>
-	<table>
-		<thead>
-			<tr>
-				<th>메뉴 이름</th>
-				<th>이미지</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${list}" var="menu">
-				<tr>
-					<td><a href="${menu.menuno}" class="target"><c:out value="${menu.mname}"></c:out></a></td>				  
-					  <td><img src="display?name=s_${menu.imgname}"></td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-	<button id="insertBtn">메뉴등록</button>
-	
+<section class="content gallery pad1"><div class="ic">More Website Templates @ TemplateMonster.com - July 30, 2014!</div>
+  <div class="container">
+    <div class="row">
+    <c:forEach items="${list}" var="menu">
+    
+      <div class="grid_4">
+        <div class="gall_block">
+          <div class="maxheight">
+            <img src="display?name=s_${menu.imgname}" style="width: 368px;height: 265px;" >
+            <div class="gall_bot">
+            <div class="text1"><c:out value="${menu.mname}"></c:out></div>
+            "${menu.minfo}"
+            <br>
+            <a href="${menu.menuno}" class="btn target">상세보기</a></div>
+         		   
+          </div>
+        </div>
+      </div>
+     
+      </c:forEach>
+      </div>
+      <button id="insertBtn">메뉴등록</button>
 	<ul class="pagination mypage"></ul>
+  </div>
+</section>
+
+
 	<form id="actionForm" action="/menu/coffeelist" method="get">
 		<input type="hidden" name="menuno">
 		  <input type="hidden" name="page" value="${criteria.page}">
 		<input type="hidden" name="size" value="${criteria.size}">
 	</form>
 	
-	<form id="insertForm" action="/menu/coffeelist" method="get">
+	<form id="insertForm" action="/menu/insert" method="get">
 		<input type="hidden" name="page" value="${criteria.page}">
 		<input type="hidden" name="size" value="${criteria.size}">
 	</form>
-	
-	
-	
-	
+  
+
+
+  
 	<script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -126,5 +128,4 @@
 	
 
 	</script>
-</body>
-</html>
+<%@ include file="footer.jsp" %>

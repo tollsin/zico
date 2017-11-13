@@ -11,7 +11,6 @@
 
 
 @import url(//fonts.googleapis.com/css?family=Dosis);
-
 html {
     width: 100%;
 }
@@ -55,15 +54,15 @@ address {
 p {
     margin-bottom: 20px;
 }
-
+/*
 input, textarea {
     border-radius: 0 !important;
     outline: none !important;
     -webkit-appearance: none;
 
 }
-
-
+*/
+/* 여기까지중에 뭔가잇음 씨빨꺼*/
 img {
     max-width: 100%;
 }

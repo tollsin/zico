@@ -8,9 +8,9 @@
 <meta name = "format-detection" content = "telephone=no" />
 <link rel="icon" href="/resources/images/favicon.ico">
 <link rel="shortcut icon" href="/resources/images/favicon.ico" />
-<link rel="stylesheet" href="/resources/css/stuck.css">
-<link rel="stylesheet" href="/resources/css/style.css">
-<link rel="stylesheet" href="/resources/css/touchTouch.css">
+ <link rel="stylesheet" href="/resources/css/stuck.css"> 
+  <link rel="stylesheet" href="/resources/css/style.css"> 
+ <link rel="stylesheet" href="/resources/css/touchTouch.css">
 <script src="/resources/js/jquery.js"></script>
 <script src="/resources/js/jquery-migrate-1.1.1.js"></script>
 <script src="/resources/js/script.js"></script> 
