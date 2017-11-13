@@ -1,8 +1,8 @@
-function setCookie(cName, cType, cMenu, cCnt){
+function setCookie(cName, cType, cMenu, cPrice, cCnt){
 		// 1. 쿠키 내용 설정
 		// 쿠키 내용 설정
 		var cValue = cType + "_" + cMenu;
-		var cValue2 = cValue + "_" + cCnt;
+		var cValue2 = cValue + "_" + cPrice + "_" + cCnt;
 		var cookie = document.cookie;
 		// 기간설정
 		var date = new Date();

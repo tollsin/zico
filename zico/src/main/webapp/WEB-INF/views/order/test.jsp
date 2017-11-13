@@ -23,25 +23,25 @@
 	
 	<script>
 	$("form").on("click",function(){
-		setCookie("order","coffee","Esspresso","10");
+		setCookie("order","coffee","Esspresso","1700","10");
 	});
 	$("#ice4").on("click",function(){
-		setCookie("order","dessert","IceCreme","4")
+		setCookie("order","dessert","IceCreme","2500","4")
 	});
 	$("#ice2").on("click",function(){
-		setCookie("order","dessert","IceCreme","2");
+		setCookie("order","dessert","IceCreme","2500","2");
 	});
 	$("#ame1").on("click",function(){
-		setCookie("order","coffee","Americano","1");
+		setCookie("order","coffee","Americano","2700","1");
 	});
 	$("#ame3").on("click",function(){
-		setCookie("order","coffee","Americano","3");
+		setCookie("order","coffee","Americano","2700","3");
 	});
 	$("#hon1").on("click",function(){
-		setCookie("order","dessert","HoneyBread","1");
+		setCookie("order","dessert","HoneyBread","4500","1");
 	});
 	$("#hon19").on("click",function(){
-		setCookie("order","dessert","HoneyBread","19");
+		setCookie("order","dessert","HoneyBread","4500","19");
 	});
 	
 /*  	function setCookie(cname, cvalue){

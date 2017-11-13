@@ -146,6 +146,7 @@
 							<tbody>									
 							</tbody>
 						</table>
+						<span>합계 : </span><span class="totprice"></span>
 					</div>
 					<br><br>
 					<input class="button check" type="button" value="check">&emsp;&emsp; 
@@ -193,7 +194,12 @@
 				if(order[i].indexOf("coffee") == 0){
 					var menu = order[i].split("_");
 					console.log("메뉴 : " + menu[1] + "  개수 : " + menu[2]);
-					$(".order > table > tbody").append("<tr class='"+menu[0]+"_"+menu[1]+"'><td class='menu'>"+menu[1]+"</td><td class='count'>"+count(menu[1],menu[2])+"</td><td class='price'>1700원</td><td><span>X</span></td></tr>");
+					$(".order > table > tbody").append("<tr class='"+menu[0]+"_"+menu[1]+"'><td class='menu'>"+menu[1]+"</td><td class='count'>"+count(menu[1],menu[3])+"</td><td class='price' value='"+menu[2]+"'>"+orderprice(menu[2]*menu[3])+"원"+"</td><td><span>X</span></td></tr>");
+					console.log(menu[0]);
+					console.log(menu[1]);
+					console.log(menu[2]);
+					console.log(menu[3]);
+					console.log(orderprice(menu[2]*menu[3]));
 				}
 			}
 			// 디저트 주문 처리
@@ -201,7 +207,7 @@
 				if(order[i].indexOf("dessert") == 0){
 					var menu = order[i].split("_");
 					console.log("메뉴 : " + menu[1] + "  개수 : " + menu[2]);
-					$(".order > table > tbody").append("<tr class='"+menu[0]+"_"+menu[1]+"'><td class='menu'>"+menu[1]+"</td><td class='count'>"+count(menu[1],menu[2])+"</td><td class='price'>1700원</td><td><span>X</span></td></tr>");
+					$(".order > table > tbody").append("<tr class='"+menu[0]+"_"+menu[1]+"'><td class='menu'>"+menu[1]+"</td><td class='count'>"+count(menu[1],menu[3])+"</td><td class='price' value='"+menu[2]+"'>"+orderprice(menu[2]*menu[3])+"원"+"</td><td><span>X</span></td></tr>");
 				}
 			}
 			// 매장 처리
@@ -210,13 +216,14 @@
 					var menu = order[i].split("_");
 					console.log("매장 : " + menu[1]);
 				}
-			}		
+			}
+			totprice();
 		});
 		
 		function count(menu,count){
 			str = "";
 			str += "<select name='"+menu+"'>" +
-					"<option value='개수'>개수</option>";
+					"<option value="+0+">개수</option>";
 			for(var i = 1; i <= 20; i++){
 				if(count != i){
 					str += "<option value="+ i +">"+ i +"</option>";
@@ -271,8 +278,9 @@
 		$("tbody").on("change","select",function(){
 			console.log($(this).val());
 			var del = $(this).parent().parent().attr("class");
+			var price = $("."+del).children(".price").attr("value");
 	        var cnt = $(this).val();
-	        var val = del + "_" + cnt
+	        var val = del + "_" + price + "_" + cnt
 			var cookie = document.cookie;
 	        var startIndex = cookie.indexOf("!"+del);
 	        var endIndex = cookie.indexOf("!",startIndex+1);
@@ -290,9 +298,29 @@
 	        	} else {
 	        		document.cookie = "order" + "= " + val; 
 	        	}
-	        	
 	        }
+	        totprice();
+	        $("."+del+" td"+":"+"eq"+"("+"2"+")").text(orderprice(price*cnt)+"원");
 		});
+		
+		function orderprice(x) {
+			if(x < 0 || (typeof x != "number")){
+				x = 0; 
+			}
+		    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");		   
+		}
+		function totprice(){
+			var order = '${order}'.split("!");
+			var tot = 0;
+			for(var i=0; i<order.length; i++){
+				if(order[i].indexOf("coffee") == 0 || order[i].indexOf("dessert") == 0){
+					var menu = order[i].split("_");
+					tot += menu[2]*menu[3];
+				}
+			}
+			$(".totprice").text(orderprice(tot)+"원");
+			console.log("tot2")
+		}
 	</script>
 </body>
 </html>

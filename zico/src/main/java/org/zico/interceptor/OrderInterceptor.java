@@ -36,7 +36,4 @@ public class OrderInterceptor extends HandlerInterceptorAdapter{
 		// TODO Auto-generated method stub
 		return super.preHandle(request, response, handler);
 	}
-
-	
-	
 }

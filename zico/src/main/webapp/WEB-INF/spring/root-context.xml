@@ -25,6 +25,15 @@
         <property name="configLocation" value="classpath:/mybatis-config.xml"></property>
    </bean>
   <mybatis-spring:scan base-package="org.zico.mappers"/>
+  	
+  	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	<mybatis-spring:scan base-package="org.zico.mappers"/>
+  
    
    <context:annotation-config></context:annotation-config>
    <context:component-scan base-package="org.zico.service"></context:component-scan>
