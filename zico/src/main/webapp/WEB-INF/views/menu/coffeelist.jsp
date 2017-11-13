@@ -29,11 +29,22 @@
 	    background-color: #fff;
 	    border: 1px solid #ddd;
     }
+    
 </style>
-<a href="/menu/dessertlist">디저트</a>
-<a href="/menu/coffeelist">커피</a>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+
 <section class="content gallery pad1"><div class="ic">More Website Templates @ TemplateMonster.com - July 30, 2014!</div>
+  
+  	  
   <div class="container">
+  <div class="w3-bar w3-border w3-light-grey">
+  <a href="/menu/coffeelist" class="w3-bar-item w3-button w3-border-right">Coffee</a>
+  <a href="/menu/dessertlist" class="w3-bar-item w3-button w3-border-right">Dessert</a>
+ 
+	</div>
     <div class="row">
     <c:forEach items="${list}" var="menu">
     
