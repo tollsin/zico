@@ -65,10 +65,10 @@
           <div class="navigation">
             <nav>
               <ul class="sf-menu">
-               <li class="current"><a href="/index.jsp">home</a></li>
+               <li class="current"><a href="/">home</a></li>
                <li><a href="index-1.html">menu</a></li>
                <li><a href="">store</a></li>
-               <li><a href="/order/test.jsp">order</a></li>
+               <li><a href="/order/index">order</a></li>
              </ul>
             </nav>        
             <div class="clear"></div>

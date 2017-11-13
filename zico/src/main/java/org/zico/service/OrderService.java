@@ -3,9 +3,9 @@
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.zico.domain.TOrder;
-import org.zico.domain.TOrderdetail;
+import org.zico.domain.OrderRegister;
+import org.zico.domain.OrderdetailRegister;
 @Service
 public interface OrderService {
-	public void insertOrder(List<TOrderdetail> vo,TOrder o);
+	public void insertOrder(List<OrderdetailRegister> vo,OrderRegister o);
 }

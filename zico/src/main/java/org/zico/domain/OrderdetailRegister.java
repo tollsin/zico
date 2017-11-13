@@ -5,7 +5,7 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-public class TOrderdetail {
+public class OrderdetailRegister {
 	private int count, ono;
 	private String menuno;
 	private Date restime;

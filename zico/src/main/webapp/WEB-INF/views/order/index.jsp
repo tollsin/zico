@@ -3,7 +3,6 @@
 <%@ include file="../header.jsp" %>
 <style>
 	select {
-	font: inherit;
     width: 70px;
     height: 30px;
     padding-left: 10px;
@@ -11,7 +10,7 @@
     color: #555555;
     border: 1px solid white;
     border-radius: 3px;
-	}
+}
 	.button {
 		background-color: #e7e7e7;
 		color: black; /* Green */
@@ -107,8 +106,8 @@
 						</div>
 					</div>
 					<br><br>
-					<div style="margin: 0 auto;">
-					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input class="button check" type="button" value="check">&emsp;&emsp;
+					<div>
+					<input class="button check" type="button" value="check">&emsp;&emsp;
 					<input class="button cancel" type="button" value="cancel">
 					<input class="restime" type="hidden" value="">
 					</div>

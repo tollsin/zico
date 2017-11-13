@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.zico.mappers.StoreMapper">
+
+	<!-- 매장 등록 -->
+	<insert id="create">
+		insert into tb_store (sname, addr, tel, lat, lng, sinfo)
+		values (#{sname}, #{addr}, #{tel}, #{lat}, #{lng}, #{sinfo})
+	</insert>
+
+	<!-- 매장 상세 조회 -->
+	<select id="read" resultType="Store">
+		select *
+		  from tb_store
+		 where sno = #{sno}
+	</select>
+
+	<!-- 매장 정보 수정 -->
+	<update id="update">
+		update tb_store
+		   set sname = #{sname}, addr = #{addr}, tel = #{tel},
+		   	   lat = #{lat}, lng = #{lng}, sinfo = #{sinfo}
+		 where sno = #{sno}
+	</update>
+	
+	<!-- 매장 삭제 -->
+	<delete id="delete">
+		delete
+		  from tb_store
+		 where sno = #{sno}
+	</delete>
+
+</mapper>

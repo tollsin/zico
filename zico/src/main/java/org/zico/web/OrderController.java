@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-import org.zico.domain.TOrder;
-import org.zico.domain.TOrderdetail;
+import org.zico.domain.OrderRegister;
+import org.zico.domain.OrderdetailRegister;
 import org.zico.service.OrderService;
 
 import lombok.extern.java.Log;
@@ -53,14 +53,14 @@ public class OrderController {
 	
 	@PostMapping("/pay")
 	public String payProcess(@CookieValue(name="order",required=false)Cookie cookie) {
-		TOrder o = new TOrder();
+		OrderRegister o = new OrderRegister();
 		o.setSno(11);
 		o.setUid("jaeik");
-		TOrderdetail vo = new TOrderdetail();
+		OrderdetailRegister vo = new OrderdetailRegister();
 		String [] or = cookie.getValue().split("!");
-		List<TOrderdetail> tor = new ArrayList<TOrderdetail>();
+		List<OrderdetailRegister> tor = new ArrayList<OrderdetailRegister>();
 		for(int i=0; i < or.length; i++) {
-			TOrderdetail aa = new TOrderdetail();
+			OrderdetailRegister aa = new OrderdetailRegister();
 			String[] or1 = or[i].split("_");
 			aa.setCount(Integer.parseInt(or1[3]));
 			aa.setMenuno(or1[2]);
