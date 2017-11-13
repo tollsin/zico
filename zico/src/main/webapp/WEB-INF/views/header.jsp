@@ -58,7 +58,7 @@
       <div class="row">
         <div class="grid_12">
         <h1>
-          <a href="/index.jsp">
+          <a href="/">
             <img src="/resources/images/logo.png" alt="Logo alt">
           </a>
         </h1>  
@@ -66,8 +66,8 @@
             <nav>
               <ul class="sf-menu">
                <li class="current"><a href="/">home</a></li>
-               <li><a href="index-1.html">menu</a></li>
-               <li><a href="">store</a></li>
+               <li><a href="/menu/coffeelist">menu</a></li>
+               <li><a href="/store/list">store</a></li>
                <li><a href="/order/index">order</a></li>
              </ul>
             </nav>        

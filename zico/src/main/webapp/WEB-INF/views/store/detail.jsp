@@ -1,17 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ include file="../header.jsp" %>
 <link href="/resources/css/store-main.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
-<title>매장 정보</title>
+
 <style>
 	#map { width: 700px; height: 400px; }
 </style>
-</head>
-<body>
+
 <div class="container">
 	<h2>매장상세정보</h2><hr>
 	
@@ -108,5 +104,4 @@
 	
 </script>
 
-</body>
-</html>
+<%@ include file="../footer.jsp" %>

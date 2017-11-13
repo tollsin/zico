@@ -16,7 +16,7 @@
               <br>
               <img src="/resources/images/main-coffee.png" alt="">
               <div class="bann_title">Coffee</div>
-              <a href="#">more</a>
+              <a href="/menu/coffeelist">more</a>
             </div>
           </div>
         </div>
@@ -29,8 +29,8 @@
             <div class="maxheight">
               <br>
               <img src="/resources/images/main-dessert.png" alt="">
-              <div class="bann_title">Desert</div>
-              <a href="#">more</a>
+              <div class="bann_title">Dessert</div>
+              <a href="/menu/dessertlist">more</a>
             </div>
           </div>
           <img src="/resources/images/main-top-dessert.jpg" alt="">
@@ -46,7 +46,7 @@
               <br>
               <img src="/resources/images/main-store.png" alt="">
               <div class="bann_title">store</div>
-              <a href="#">more</a>
+              <a href="/store/list">more</a>
             </div>
           </div>
 		  </div>

@@ -108,5 +108,4 @@ $(document).ready(function() {
 	$(".list").html(str);
 });
 </script>
-</body>
-</html>
+<%@ include file="../footer.jsp" %>
