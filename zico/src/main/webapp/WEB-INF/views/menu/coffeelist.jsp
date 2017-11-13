@@ -5,6 +5,31 @@
 <!--=====================
           Content
 ======================-->
+<style>
+	.mypage>li:first-child>a{
+		margin-left: 0;
+		border-top-left-radius: 4px;
+		border-bottom-left-radius: 4px;
+	}
+	.mypage>.active>a{
+		z-index: 3;
+	    color: #fff;
+	    cursor: default;
+	    background-color: #337ab7;
+	    border-color: #337ab7;
+    }
+    .mypage>li>a{
+        position: relative;
+	    float: left;
+	    padding: 6px 12px;
+	    margin-left: -1px;
+	    line-height: 1.42857143;
+	    color: #337ab7;
+	    text-decoration: none;
+	    background-color: #fff;
+	    border: 1px solid #ddd;
+    }
+</style>
 <a href="/menu/dessertlist">디저트</a>
 <a href="/menu/coffeelist">커피</a>
 <section class="content gallery pad1"><div class="ic">More Website Templates @ TemplateMonster.com - July 30, 2014!</div>
@@ -89,7 +114,6 @@
 		}
 	 
 	 
-		
 	    $(".mypage").on("click", "li > a", function(event) {
 	    	event.preventDefault();
 	    	
@@ -99,6 +123,7 @@
 	    	actionForm.find("input[name='page']").val(pageNum);
 	    	actionForm.submit();
 	    });	    
+		
 	    var str = "";	    
 	    if(pageResult.prev) {
 	    	str += "<li class='page-item'><a class='page-link' href=" + (parseInt(pageResult.first) - 1) + ">prev </a></li>";

@@ -5,6 +5,31 @@
 <!--=====================
           Content
 ======================-->
+<style>
+	.mypage>li:first-child>a{
+		margin-left: 0;
+		border-top-left-radius: 4px;
+		border-bottom-left-radius: 4px;
+	}
+	.mypage>.active>a{
+		z-index: 3;
+	    color: #fff;
+	    cursor: default;
+	    background-color: #337ab7;
+	    border-color: #337ab7;
+    }
+    .mypage>li>a{
+        position: relative;
+	    float: left;
+	    padding: 6px 12px;
+	    margin-left: -1px;
+	    line-height: 1.42857143;
+	    color: #337ab7;
+	    text-decoration: none;
+	    background-color: #fff;
+	    border: 1px solid #ddd;
+    }
+</style>
 <section class="content gallery pad1"><div class="ic"></div>
 <a href="/menu/dessertlist">디저트</a>
 <a href="/menu/coffeelist">커피</a>
