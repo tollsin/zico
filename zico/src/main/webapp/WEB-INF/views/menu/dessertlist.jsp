@@ -34,7 +34,7 @@
 </section>
 
 
-	<form id="actionForm" action="/menu/detail" method="get">
+	<form id="actionForm" action="/menu/dessertlist" method="get">
 		<input type="hidden" name="menuno">
 		  <input type="hidden" name="page" value="${criteria.page}">
 		<input type="hidden" name="size" value="${criteria.size}">
@@ -75,8 +75,8 @@
 	    }
 	 
 	 function makePage(param) {
-		    var last = Math.ceil(param.page / 10.0) * 10;
-		    var first = last - 9;
+		    var last = Math.ceil(param.page / 5) * 5.0;
+		    var first = last - 4;
 		    var prev = false, next = true;
 		    
 		    if (param.total <= last * param.size ) {

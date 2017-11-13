@@ -15,7 +15,7 @@
 	<form class="container" method="post" enctype="multipart/form-data">
 	<div class="form-group">
 				<label>카테고리:</label> <label class="radio-inline"> <input
-					type="radio" name="category" value="Coffee"> coffee
+					type="radio" name="category" value="Coffee" checked="checked"> coffee
 				</label> <label class="radio-inline"> <input type="radio"
 					name="category" value="Desert"> dessert
 				</label>
@@ -35,7 +35,7 @@
 			</div>
 	<div class="form-group">
 				<label>사이즈:</label> <label class="radio-inline"> <input
-					type="radio" name="msize" value="Short">Short
+					type="radio" name="msize" value="Short" checked="checked">Short
 				</label> <label class="radio-inline"> <input type="radio"
 					name="msize" value="Grande"> Grande
 				</label> <label class="radio-inline"> <input type="radio"
