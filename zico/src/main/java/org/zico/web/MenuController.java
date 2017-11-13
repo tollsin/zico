@@ -40,6 +40,8 @@ public class MenuController {
 	private MenuService service;
 	@GetMapping("/insert")
 	public void getinsert(Criteria cri) {}
+	@GetMapping("/dinsert")
+	public void getdinsert(Criteria cri) {}
 	
 	
 	@PostMapping("/insert")
@@ -70,9 +72,51 @@ public class MenuController {
 		return "redirect:/menu/coffeelist";	
 	}
 	
+	@PostMapping("/dinsert")
+	public String dinsert(Menu menu,Criteria cri, RedirectAttributes rttr,MultipartFile f1,Model model) {
+		String uuid = UUID.randomUUID().toString();
+		String uploadName = uuid + "_" + f1.getOriginalFilename();
+		model.addAttribute("uploadName", uploadName);
+		try {
+			OutputStream out = new FileOutputStream("c:\\zzz\\" + uploadName);
+			FileCopyUtils.copy(f1.getInputStream(), out);
+			
+			
+			if(f1.getContentType().startsWith("image")) {
+				model.addAttribute("isImage", f1.getContentType().startsWith("image"));
+				makeThumbnail(uploadName);
+			}
+			
+			
+		} catch(Exception e) {
+			log.warning(e.getMessage());
+		}
+		menu.setImgpath("암거나 들어와라 ");
+		menu.setImgname(uploadName);
+		service.insert(menu);
+		rttr.addFlashAttribute("result","success");	// 일회성 parameter
+		rttr.addFlashAttribute("criteria",cri);	// 일회성 parameter
+		
+		return "redirect:/menu/dessertlist";	
+	}
+	
 	private String makeThumbnail(String fileName) throws Exception{	          
 		BufferedImage sourceImg = ImageIO.read(new File("c:\\zzz\\", fileName));
-		BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT,300);
+	/*
+		int dw = 368;
+		int dh = 265;
+		int ow = sourceImg.getHeight();
+		int oh = sourceImg.getWidth();
+		int nw = ow;
+		int nh = (ow * dh) / dw;
+		if(nh > oh) {
+			nw = (oh*dw) / dh;
+			nh = oh;
+		}
+		BufferedImage destImg = Scalr.crop(sourceImg, (ow-nw)/2, (oh-nh)/2, nw, nh);
+		destImg = Scalr.resize(destImg, dw, dh);
+		*/
+		BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT,368);
 																				// 이미지가 깨지지 않도록 height 100으로 설정
 		
 		String thumbnailName = "c:\\zzz\\" + File.separator +"s_"+ fileName;
