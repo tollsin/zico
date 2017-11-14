@@ -4,7 +4,12 @@
 <%@ include file="../header.jsp" %>
 <link href="/resources/css/store-main.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
-
+<style>
+.container {
+	background: white;
+	color: black;
+}
+</style>
 <div class="container">
 	<h2>매장 리스트</h2>
 	<button id="registerBtn">신규 매장 등록</button><p>

@@ -56,7 +56,7 @@
 	
   <section id="stuck_container">
     <div class="container">
-  	<div style="float:right;"><a href="">sign in</a><span>|</span><a href="">log in</a></div>
+  	<div style="float:right;"><a href="/res">sign in</a><span>|</span><a href="/login">log in</a></div>
       <div class="row">
         <div class="grid_12">
         <h1>
