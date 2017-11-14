@@ -28,7 +28,7 @@ public class LoginTestController extends HandlerInterceptorAdapter {
 		log.info("login");
 	}
 	
-	@PostMapping("/loginPost")
+	@PostMapping("/login")
 	public String loginpost(Test vo, boolean remember, Model model) {
 		String id = vo.getUid();
 		try {

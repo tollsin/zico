@@ -21,7 +21,7 @@ public class TestController {
 		return "resistration";
 	}
 	
-	@PostMapping("/postres")
+	@PostMapping("/res")
 	public String test1(Test tt,@RequestParam(name="uid",required=false)String uid) {
 		log.info(uid);
 		log.info(tt.toString());
