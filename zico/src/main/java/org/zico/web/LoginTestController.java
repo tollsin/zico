@@ -40,11 +40,11 @@ public class LoginTestController extends HandlerInterceptorAdapter {
 				log.info("로그인!!!");
 				model.addAttribute("member", vo.getUid());
 				model.addAttribute("remember", remember);
-				return "redirect:test";
+				return "redirect:/test";
 			} 
 			else {
 				log.info("틀림");
-				return "redirect:test";
+				return "redirect:/test";
 			}
 		} catch(Exception e){
 			
@@ -54,7 +54,7 @@ public class LoginTestController extends HandlerInterceptorAdapter {
 		log.info("1번"+vo.getUid());
 		log.info("2번"+vo.getUpassword());
 
-		return "redirect:test";
+		return "redirect:/test";
 	
 	
 	}

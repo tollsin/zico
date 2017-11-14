@@ -18,7 +18,7 @@ public class TestController {
 	
 	@GetMapping("/res")
 	public String test() {
-		return "resistration";
+		return "redirect:/resistration";
 	}
 	
 	@PostMapping("/res")
@@ -26,6 +26,6 @@ public class TestController {
 		log.info(uid);
 		log.info(tt.toString());
 		service.insert(tt);
-		return "mypage";
+		return "redirect:/mypage";
 	}
 }

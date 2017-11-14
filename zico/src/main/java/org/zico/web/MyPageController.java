@@ -18,7 +18,7 @@ public class MyPageController {
 	@GetMapping("/mypagego")
 	public String mypagetest() {
 		
-		return "mypagetest";
+		return "redirect:/mypagetest";
 		
 	}
 	@PostMapping("/mypagego")
@@ -30,7 +30,7 @@ public class MyPageController {
 		model.addAttribute("result",myservice.pageview(vo));
 		System.out.println( "벌쓰"+vo.getBirth());
 		
-		return "mypage";
+		return "redirect:/mypage";
 	}
 
 	@PostMapping("/updatemypage")
