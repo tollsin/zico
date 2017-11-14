@@ -6,6 +6,7 @@
 
 <style>
 	#map { width: 700px; height: 400px; }
+	button { color: white; }
 </style>
 
 <div class="container">

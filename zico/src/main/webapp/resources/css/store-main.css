@@ -61,7 +61,8 @@
 }
 
 button {
-    background:#acb4cb; color:#fff; 
+    background:#acb4cb;
+    color:white; 
     cursor:pointer;
     padding:5px 10px;
     -moz-border-radius:4px;

@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
+<style>
+	body { background-color: white; }
+	h2 { font-size: 30px; font-weight: 500; }
+</style>
 <link href="/resources/css/store-form.css" rel="stylesheet">
 
 <div class="container">
@@ -30,7 +34,7 @@
 		</div><p>
 		
 		<button type="button" id="listBtn">목록으로</button>
-		<button type="submit" class="btn btn-default">매장등록</button>
+		<button type="submit" class="registerBtn">매장등록</button>
 	</form>
 	
 	<form id="listForm" action="/store/list" method="get">
