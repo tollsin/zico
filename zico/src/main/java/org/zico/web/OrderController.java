@@ -1,5 +1,7 @@
 package org.zico.web;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.zico.domain.OrderRegister;
@@ -31,17 +34,13 @@ public class OrderController {
 	
 	@GetMapping("/index")
 	public void main(@CookieValue(name="order",required=false)Cookie cookie, Model mm) {
-		log.info("aa");
 		if(cookie != null) {
-			log.info("쿠키 있다!");
 			String str = cookie.getValue();
 			mm.addAttribute("order",str);
 		}
 		else {
-			log.info("쿠키 없다!");
 		}
 	}
-
 	
 	@GetMapping("/test")
 	public void test() {
@@ -52,9 +51,8 @@ public class OrderController {
 	}
 	
 	@PostMapping("/pay")
-	public String payProcess(@CookieValue(name="order",required=false)Cookie cookie) {
+	public String payProcess(@CookieValue(name="order",required=false)Cookie cookie,@RequestParam(name="restime")String date) {
 		OrderRegister o = new OrderRegister();
-		o.setSno(11);
 		o.setUid("jaeik");
 		OrderdetailRegister vo = new OrderdetailRegister();
 		String [] or = cookie.getValue().split("!");
@@ -64,7 +62,7 @@ public class OrderController {
 			String[] or1 = or[i].split("_");
 			aa.setCount(Integer.parseInt(or1[3]));
 			aa.setMenuno(or1[2]);
-			aa.setRestime(null);
+			aa.setRestime(date);
 			tor.add(aa);
 		}
 		try {

@@ -7,6 +7,5 @@ import lombok.Data;
 @Data
 public class OrderdetailRegister {
 	private int count, ono;
-	private String menuno;
-	private Date restime;
+	private String menuno, restime;
 }

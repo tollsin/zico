@@ -109,7 +109,7 @@
 					<div>
 					<input class="button check" type="button" value="check">&emsp;&emsp;
 					<input class="button cancel" type="button" value="cancel">
-					<input class="restime" type="hidden" value="">
+					<input class="restime" name="restime" type="hidden" value="">
 					</div>
 					<br>
 					<br>
@@ -213,7 +213,9 @@
 			}
 				tim = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate() + " " + d.getHours() + ":" + $(".hour option:selected").text() + ":" + $(".minute option:selected").text();
 
-				$(".restime").val(tim)
+				$(".restime").val(tim);
+				console.log(tim);
+				console.log($(".restime").val());
 			});
 		
 		// 삭제 클릭시 엘리먼트삭제+쿠키삭제
@@ -243,6 +245,7 @@
 	        	}
 	        }
 	        $(this).parents("tr").remove();
+	        totprice();
 		});
 		
 		// 개수 수정시 쿠키 수정

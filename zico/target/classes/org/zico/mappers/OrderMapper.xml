@@ -7,6 +7,6 @@
   
  	<insert id="insertOdetail">
 		<selectKey order="BEFORE" keyProperty="ono" resultType="int"> SELECT MAX(ono) FROM zico_order </selectKey>
-		insert into zico_order_detail (ono,menuno, count, restime) values (${ono}, ${menuno}, ${count})
+		insert into zico_order_detail (ono,menuno, count, restime) values (${ono}, ${menuno}, ${count}, '${restime}')
 	</insert>  
   </mapper>
